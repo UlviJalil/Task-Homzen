@@ -1,152 +1,100 @@
-// let tableBody = document.querySelector("tbody")
+// update Task:
 
-// fetch("http://localhost:8080/invoices")
-// .then((response) => response.json())
-// .then((data) => {
-//     console.log(data);
-
-// })
-
-// let btn = document.querySelector("#btn");
-
-// let count = 0;
-
-// btn.addEventListener("click",()=>{
-//     count++
-//     console.log(count)
-// })
-
-
-// let today = new Date();
-// console.log(today.getHours())
-// console.log(today.getMinutes());
-// console.log(today.getSeconds());
-// console.log(today.getDay());
-// console.log(today.getMonth());
-// console.log(today.getFullYear());
+// fetch("https://northwind.vercel.app/api/suppliers").then(
+//     res => {
+//       res.json().then(
+//         data => {
+         
+//           if (data.length > 0) {
+//   console.log(data);
+//             let temp = "";
+//             data.forEach((itemData) => {
+//               temp += "<tr>";
+//               temp += "<td>" + itemData.id + "</td>";
+//               temp += "<td>" + itemData.companyName + "</td>";
+//               temp += "<td>" + itemData.contactName + "</td>";
+//               temp += "<td>" + itemData.contactTitle + "</td>";
+//               temp += "<td>" + itemData.address + "</td>";
+//             });
+//             document.getElementById('data').innerHTML = temp;
+//           }
+//         }
+//       )
+//     }
+//   )
 
 
-// document.querySelector("button").addEventListener("click",()=>{
-//    fetch('https://jsonplaceholder.typicode.com/todos/1')
-//    .then(response=>response.json())
-//    .then(json=>console.log(json))
-//    .catch(err=>console.log(err))
+//   const urlParams = new URLSearchParams(window.location.search);
+//   const id = urlParams.get(`id`);
+//   console.log(id);
+//   fetch(`https://northwind.vercel.app/api/suppliers`)
+//   .then(response => response.json())
+//   .then(data=>{
+//     addData(data);
+//   });
+
+//   let id_input = document.querySelector(".id-input");
+//   let company_name_input = document.querySelector(".company-name-input");
+//   let contact_name_input = document.querySelector(".contact-name-input");
+//   let contact_title_input = document.querySelector(".contact-title-input");
+//   let city_input = document.querySelector(".city-input");
+//   let country_input = document.querySelector(".country-input");
+
+//   function addData(data){
+//     id_input.value = id
+//     company_name_input.value = data.companyName
+//     contact_name_input.value = data.companyName
+//     contact_title_input.value = data.contactTitle
+//     city_input.value =data.address.city
+//     country_input.value = data.address.country
+//   }
+
+
+// document.querySelector('.updatebtn').addEventListener("click", function(){
+
+//   const data ={
+//     id: id_input.value,
+//     companyName: company_name_input.value,
+//     contactName: contact_name_input.value,
+//     contactTitle: contact_title_input.value,
+//     address: {
+//       city: city_input.value,
+//       country: country_input.value
+//     }
+//   }
+
+
+
+//   fetch(`https://northwind.vercel.app/api/suppliers/${id}`,{
+//     method:"PUT",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(data),
+//   })
+//   .then((response)=> response.json())
+//   .then((data)=>{
+//     alert("Successfully posted!",data);
+//   })
+//   .catch((error)=>{
+//     console.error("Error:", error);
+//   });
 // });
 
-// let obj = {
-//    address:{
-//       city:"salam",
-//       address:"h2",
-//       country:"baku"
-//    },
-//    surname:"Surname"
-// }
 
-// console.log(obj.address.city);
+// let promise = Promise.resolve();
 
+// promise.then(() => alert("promise done!"));
 
-// const tbody = document.querySelector("#tbody")
+// alert("code finished"); // this alert shows first
 
-// fetch('https://northwind.vercel.app/api/suppliers')
-// .then(response=>response.json())
-// .then(data=> data.map((item) => {
-//    console.log(item);
-//    tbody.innerHTML += `
-//         <tr>
-//             <td>${item.id}</td>
-//             <td>${item.companyName}</td>
-//             <td>${item.contactName}</td>
-//             <td>${item.contactTitle}</td>
-//             <td>${item.address.street}</td>
-//             <td>${item.address.city}</td>
-//             <td>${item.address.country}</td>
+// let promise = Promise.resolve();
+// promise.then(() => alert("promise done!"));
 
-//         </tr>
-//    `
-// }))
-// .catch(err=>console.log(err))
+// alert("code finished");
 
 
+// Promise.resolve()
+// .then(() => alert("promise done!"))
+// .then(() => alert("promise finished"))
 
-
-
-// Function Declaration:
-
-// function sayHi() {
-//    console.log("Salam Ulvi bey","Ve Nicat bey","Necesiz");
-// }
-
-// sayHi();
-
-
-// Function Expression:
-
-// const sayBye = function() {
-
-//    console.log("Bye");
-   
-// }
-
-// sayBye();
-
-
-// function say(ulvi) {
-//    console.log(ulvi);
-// }
-
-// say("log1");
-// say("log2");
-// say("log3");
-// say("log4");
-// say("log5");
-
-// function multiply(a,b) {
-//    if (a>10) {
-//       return ("This is hard!");
-//    }
-//   return a*b
-// }
-
-// multiply(2,4);
-
-// let name = "Tahir"
-// let surname = "Jalil"
-
-// if (!(name === "Ulvi") && surname === "Jalil" ) {
-//    alert("Hi Ulvi Jalil")
-// }else{
-//    alert("I don't know you")
-// }
-
-
-// let point = prompt("Enter your point");
-
-// if (point>50) {
-// alert("Sen qebul olundun")
-// }else{
-//    alert("Sen qebul olunmadin")
-// }
-
-
-function calculate() {
-    let num1 = parseInt(document.getElementById("num1").value)
-    let num2 = parseInt(document.getElementById("num2").value)
-    
-    let operation = document.getElementById("check").value;
-
-    if (operation == '+') {
-     document.getElementById("resulti").value = num1 + num2;
-
-    }else if (operation == '-') {
-        document.getElementById("resulti").value = num1 - num2;
-        
-    }else if (operation == '*') {
-        document.getElementById("resulti").value = num1 * num2;
-        
-    }else if (operation == "/") {
-        document.getElementById("resulti").value = num1 / num2;
-        
-    }
-}
-
-calculate();
